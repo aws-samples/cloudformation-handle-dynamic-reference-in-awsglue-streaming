@@ -337,16 +337,6 @@ Resources:
       # Always start at the tail of the Stream
       StartingPosition: LATEST
 
-  LambdaFunctionLogGroup:
-    Type: AWS::Logs::LogGroup
-    Properties:
-      KmsKeyId: alias/aws/cloudwatch
-      LogGroupName: !Join
-        - ''
-        - - '/aws/lambda/'
-          -  !Ref LoggingFunction
-      RetentionInDays: 14
-
   GlueRole:
         Type: "AWS::IAM::Role"
         Properties:
