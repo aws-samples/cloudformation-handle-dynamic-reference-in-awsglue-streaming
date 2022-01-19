@@ -344,8 +344,20 @@ Resources:
             RoleName: "AWSGlueServiceRoleDefaultdemo"
             AssumeRolePolicyDocument: "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"glue.amazonaws.com\"},\"Action\":\"sts:AssumeRole\"}]}"
             MaxSessionDuration: 3600
+            Policies:
+              - PolicyName: GlueS3AccessPolicy
+                PolicyDocument:
+                  Version: "2012-10-17"
+                  Statement:
+                    - Effect: Allow
+                      Action: ['s3:*','s3-object-lambda:*']
+                      Resource: 
+                        - !Join
+                          - ''
+                          - - 'arn:aws:s3:::'
+                            - !Ref S3Bucket
+                            - /*
             ManagedPolicyArns: 
-              - "arn:aws:iam::aws:policy/AmazonS3FullAccess"
               - "arn:aws:iam::aws:policy/service-role/AWSGlueServiceRole"
               - "arn:aws:iam::aws:policy/AmazonKinesisReadOnlyAccess"
               - "arn:aws:iam::aws:policy/AmazonDynamoDBReadOnlyAccess"
