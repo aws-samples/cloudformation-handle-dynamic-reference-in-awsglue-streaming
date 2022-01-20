@@ -8,6 +8,8 @@ CUSTOMER BENEFIT - Reference data changes will be applied in real-time to stream
 
 TECHNICAL SOLUTION - This blog explains a solution architecture that uses a combination of Dynamo DB streams (for reference data in DDB) and Lambda functions to solve the problem of changing reference data. Every time there's a change in the reference, the Lambda will be triggered and a payload structured to look exactly the same as the streaming source data will be inserted into the source stream. This payload will contain a change flag which is monitored by the Glue Streaming job in every micro-batch. The moment it finds the change flag, the job will trigger a refresh of the reference data and the change will be available for all subsequent data streams.
 
+AUTHOR - Jerome Rajan
+
 ## Security
 
 See [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more information.
