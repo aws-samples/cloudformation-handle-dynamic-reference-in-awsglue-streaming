@@ -37,7 +37,6 @@ To deploy the solution, complete the following steps:
 3.	A Lambda function is invoked every time a change occurs in the reference data. 
 4.	The Lambda function captures the event containing the changed record, creates a “change file” and places it in an Amazon S3 bucket.
 5.	The AWS Glue job is designed to monitor the S3 prefix for this value in every micro-batch. The moment that it sees the change flag, AWS Glue initiates a refresh of the DynamoDB data before processing any further records in the stream.
-![image](https://user-images.githubusercontent.com/11506905/150673756-3b8eb7e1-85b1-487f-87e4-6ce671ad49bd.png)
 
 
 AUTHOR - Jerome Rajan
