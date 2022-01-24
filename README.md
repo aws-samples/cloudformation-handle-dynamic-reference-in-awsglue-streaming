@@ -1,3 +1,5 @@
+The AWS Blogpost is published at https://aws.amazon.com/blogs/big-data/handle-fast-changing-reference-data-in-an-aws-glue-streaming-etl-job/
+
 ## Handle Changing Reference Data In A Glue Streaming Job With High Availability
 
 PROBLEM STATEMENT - Glue Streaming jobs process real time data from Kinesis data streams using micro-batches. The streaming functionality is built on top of Spark Structured Streaming framework and the foreachbatch method used to process micro-batches handles only a single stream of data. If the streaming job requires a lookup to a dynamic reference, the job will have to be restarted everytime there's a change which leads to poor availability and processing delays.
